@@ -8,7 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,5 +21,8 @@ jobs:
     - name: Build
       run: go build hello.go
       
+    - name: Test-build
+      run: ./hello
+      
     - name: Test
-      run: go run ./hello
+      run: go run hello.go
