@@ -9,9 +9,17 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        haxe: [4.2.3, 3.4.7]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: ${{ matrix.haxe  }}
+      - run: haxe -v
       
       - name: Build
         run: |
