@@ -22,8 +22,6 @@ jobs:
         
       - name: haxe version
         run: haxe -v
-      - name: hashlink version
-        run: hl
       
       - name: Build
         run: |
