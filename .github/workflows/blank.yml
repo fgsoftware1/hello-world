@@ -1,0 +1,27 @@
+name: Haxe
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: krdlab/setup-haxe@v1
+      
+      - name: Build
+        run: |
+          haxe --neko hello.n --main Main
+          haxe --hl hello.hl --main Main
+      - name: Test-neko
+        run: neko hello.n
+      - name: Test-hashlink
+        run: hl hello.hl
+      - name: Test-interpreter
+        run: haxe --interp --main Main
+      - name: Test-haxeproject
+        run: haxe build.hxml
