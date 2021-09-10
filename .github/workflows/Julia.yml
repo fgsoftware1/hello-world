@@ -11,11 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: julia-actions/setup-julia@v1
-      with:
-        version: 1
-        arch: x64
-    
-    - name: Test
-    - run: julia hello.jl
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@v1
+      
+      - name: Test
+      - run: julia hello.jl
