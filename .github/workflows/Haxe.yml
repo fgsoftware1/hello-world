@@ -9,17 +9,21 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        haxe: [4.2.3, 3.4.7]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - uses: krdlab/setup-haxe@v1
+      
+      - name: Haxe setup
+        uses: krdlab/setup-haxe@v1
         with:
-          haxe-version: ${{ matrix.haxe  }}
-      - run: haxe -v
+          haxe-version: 4.2.3
+      - name: Hashlink setup
+        uses: pxshadow/setup-hashlink@v1.0.1
+        
+      - name: haxe version
+        run: haxe -v
+      - name: hashlink version
+        run: hl -v
       
       - name: Build
         run: |
