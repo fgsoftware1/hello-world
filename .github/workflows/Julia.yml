@@ -15,9 +15,6 @@ jobs:
       
       - name: julia setup
         uses: julia-actions/setup-julia@v1
-        with:
-          version: 1
-          arch: arch
           
       - name: Test
         run: julia hello.jl
