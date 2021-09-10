@@ -1,0 +1,10 @@
+--main Main
+--neko bin/hello.n
+--cmd neko bin/hello.n
+--next
+--main Main
+--interp
+--next
+--main Main
+--hl bin/hello.hl
+--cmd hl bin/hello.hl
