@@ -1,0 +1,18 @@
+name: Julia
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: julia-actions/setup-julia@v1
+      with:
+          version: '1.0.4'
+    - name: Test
+    - run: julia hello.jl
