@@ -12,7 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: julia-actions/setup-julia@v1
       
+      - name: julia setup
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: 1
+          arch: arch
+          
       - name: Test
-      - run: julia hello.jl
+        run: julia hello.jl
