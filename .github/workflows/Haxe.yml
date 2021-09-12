@@ -33,5 +33,3 @@ jobs:
         run: hl hello.hl
       - name: Test-interpreter
         run: haxe --interp --main Main
-      - name: Test-haxeproject
-        run: haxe build.hxml
