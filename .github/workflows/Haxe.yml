@@ -26,7 +26,7 @@ jobs:
       - name: Build
         run: |
           haxe --main Main --neko hello.n
-          haxe --hl hello.hl --main Main
+          haxe --main Main --hl hello.hl
       - name: Test-neko
         run: neko hello.n
       - name: Test-hashlink
