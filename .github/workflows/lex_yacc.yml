@@ -1,4 +1,4 @@
-name: LEX/YACCC
+name: LEX/YACC
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
           ls
       - name: Link
         run: |
-          gcc lex.yy.c y.tab.c -o hello -lfl
+          gcc lex.yy.c y.tab.c -o hello
           ls
       - name: Test
         run: |
