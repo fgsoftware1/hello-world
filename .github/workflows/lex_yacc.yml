@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run a multi-line script
-        run: |
-          sudo apt-get install flex bison gcc
-          echo test, and deploy your project.
+      - name: deps installation
+        run: sudo apt-get install flex bison gcc
+      - name: flex version
+        run: flex -v
