@@ -22,6 +22,11 @@ int main(void)
 
 int yyerror(char *errormsg)
 {
+<<<<<<< HEAD
     fprintf(stderr, "%s\n", errormsg);
     exit(1);
+=======
+      fprintf(stderr, "%s\n", errormsg);
+      exit(1);
+>>>>>>> 6bb5331 (commit)
 }
