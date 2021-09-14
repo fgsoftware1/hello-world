@@ -1,31 +1,23 @@
 %{
-  #include "y.tab.h"
-  int yyerror(char *errormsg);
-  int yyparse();
+
+  #include <stdio.h>
+  #include <stdlib.h>
+  int yylex(void);
+  int yyerror(const char *s);
+
 %}
-  
-%%
 
-("hi"|"oi")"\n"       { return HI;  }
-("tchau"|"bye")"\n"   { return BYE; }
-[-[]+.,><]            { return yytext[0]; }
-.                     { yyerror("Unknow char");  }
+%token HI BYE
 
 %%
 
-int main(void)
-{
-    yyparse();
-    return 0;
-}
+program:
+         hi bye
+        ;
 
-int yywrap(void)
-{
-    return 0;
-}
-
-int yyerror(char *errormsg)
-{
-    fprintf(stderr, "%s\n", errormsg);
-    exit(1);
-}
+hi:
+        HI     { printf("Hello World\n");   }
+        ;
+bye:
+        BYE    { printf("Bye World\n"); exit(0); }
+         ;
