@@ -28,7 +28,3 @@ jobs:
         run: |
           gcc lex.yy.c y.tab.c -o hello
           ls
-      - name: Test
-        run: |
-          ./hello
-          hi
