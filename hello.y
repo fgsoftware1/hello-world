@@ -7,17 +7,14 @@
 
 %}
 
-%token HI BYE
+%token HI
 
 %%
 
 program:
-         hi bye
-        ;
+    hi
+    ;
 
 hi:
-        HI     { printf("Hello World\n");   }
-        ;
-bye:
-        BYE    { printf("Bye World\n"); exit(0); }
-         ;
+    HI     { printf("Hello World\n");   }
+    ;
