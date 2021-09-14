@@ -17,8 +17,18 @@ jobs:
       - name: deps installation
         run: sudo apt-get install flex bison gcc
       - name: flex compile
-        run: flex hello.l
+        run: |
+          flex hello.l
+          ls
       - name: bison compile
-        run: bison -d hello.y -o y.tab.c
-      - name: link
-        run: gcc lex.yy.c y.tab.c -o hello
+        run: |
+          bison -d hello.y -o y.tab.c
+          ls
+      - name: Link
+        run: |
+          gcc lex.yy.c y.tab.c -o hello -lfl
+          ls
+      - name: Test
+        run: |
+          ./hello
+          hi
