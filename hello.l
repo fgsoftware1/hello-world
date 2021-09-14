@@ -9,7 +9,6 @@
 %%
 
 ("hi")"\n"       { return HI;  }
-("bye")"\n"   { return BYE; }
 [-[]+.,><]            { return yytext[0]; }
 .                     { yyerror("Unknow char");  }
 
