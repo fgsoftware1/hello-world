@@ -1,20 +1,30 @@
 %{
-
-#undef yywrap
-#define yywrap() 1
-
+  #include "y.tab.h"
+  int yyerror(char *errormsg);
+  int yyparse();
 %}
+  
+%%
+
+("hi")"\n"       { return HI;  }
+[-[]+.,><]            { return yytext[0]; }
+.                     { yyerror("Unknow char");  }
 
 %%
 
-[\n] {
-	printf("Hello World\n");	
+int main(void)
+{
+    yyparse();
+    return 0;
 }
 
-	
-%%
-
-main()
+int yywrap(void)
 {
-	yylex(); //calling the rules section
+    return 0;
+}
+
+int yyerror(char *errormsg)
+{
+    fprintf(stderr, "%s\n", errormsg);
+    exit(1);
 }
