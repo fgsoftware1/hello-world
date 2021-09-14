@@ -1,0 +1,24 @@
+name: LEX/YACCC
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: deps installation
+        run: sudo apt-get install flex bison gcc
+      - name: flex compile
+        run: flex hello.l
+      - name: bison compile
+        run: bison -d hello.y -o y.tab.c
+      - name: link
+        run: gcc lex.yy.c y.tab.c -o hello
