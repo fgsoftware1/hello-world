@@ -12,21 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Haxe setup
         uses: krdlab/setup-haxe@v1
         with:
           haxe-version: 4.2.3
       - name: Hashlink setup
         uses: pxshadow/setup-hashlink@v1.0.1
-        
+
       - name: haxe version
         run: haxe -v
-      
-      - name: Build
-        run: |
-          haxe --main Main --neko hello.n
-          haxe --main Main --hl hello.hl
+
+      - name: Build-neko
+        run: haxe --main Main --neko hello.n
+	  - name: Build-hashlink
+        run: haxe --main Main --hl hello.hl
       - name: Test-neko
         run: neko hello.n
       - name: Test-hashlink
