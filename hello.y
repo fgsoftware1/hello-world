@@ -1,20 +1,18 @@
 %{
-
   #include <stdio.h>
   #include <stdlib.h>
   int yylex(void);
   int yyerror(const char *s);
-
 %}
 
-%token HI
+%token HW
 
 %%
 
 program:
-    hi
+    hw
     ;
 
-hi:
-    HI     { printf("Hello World\n");   }
+hw:
+	HW	{printf("Hello World\n");}
     ;
